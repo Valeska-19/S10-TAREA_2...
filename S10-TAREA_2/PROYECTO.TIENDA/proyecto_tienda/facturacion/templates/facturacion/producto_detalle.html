@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo %}{{ producto.nombre }}{% endblock %}
+{% block contenido %}
+<div class="row justify-content-center"><div class="col-lg-7"><div class="tarjeta">
+    <h1 class="h3 titulo-pagina">{{ producto.nombre }}</h1>
+    <p class="text-muted">{{ producto.descripcion|default:"Sin descripción." }}</p>
+    <ul class="list-group mb-4">
+        <li class="list-group-item"><b>Marca:</b> {{ producto.marca.nombre }}</li>
+        <li class="list-group-item"><b>Categorías:</b>
+            {% for categoria in producto.categorias.all %}{{ categoria.nombre }}{% if not forloop.last %}, {% endif %}{% empty %}Sin categoría{% endfor %}
+        </li>
+        <li class="list-group-item"><b>Precio:</b> ${{ producto.precio }}</li>
+        <li class="list-group-item"><b>Stock:</b> {{ producto.stock }} unidades</li>
+        <li class="list-group-item"><b>Creado:</b> {{ producto.fecha_creacion|date:"d/m/Y H:i" }}</li>
+    </ul>
+    <a href="{% url 'facturacion:producto_editar' producto.pk %}" class="btn btn-verde">Editar</a>
+    <a href="{% url 'facturacion:producto_lista' %}" class="btn btn-outline-secondary">Volver</a>
+</div></div></div>
+{% endblock %}

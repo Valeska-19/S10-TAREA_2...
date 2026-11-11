@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }}{% endblock %}
+{% block contenido %}
+<div class="row justify-content-center"><div class="col-md-6"><div class="tarjeta text-center">
+    <h1 class="h4 mb-3">¿Eliminar al cliente <span class="text-danger">{{ cliente }}</span>?</h1>
+    <p class="text-muted">Esta acción no se puede deshacer.</p>
+    {# El botón envía POST a esta misma dirección: ahí la vista sí elimina #}
+    <form method="post">{% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        <a href="{% url 'facturacion:cliente_lista' %}" class="btn btn-outline-secondary">No, volver</a>
+    </form>
+</div></div></div>
+{% endblock %}

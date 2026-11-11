@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tienda de tecnología: página de demostración HTML y CSS de la Tarea 2 de POO.">
+  <title>TecnoShop | Tecnología al mejor precio</title>
+  <!-- CSS separado del HTML: Unidad 1 de la guía. -->
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="contenedor cabecera-interior">
+      <a class="logo" href="#inicio">Tecno<span>Shop</span></a>
+      <nav class="menu" aria-label="Navegación principal">
+        <a href="#productos">Productos</a>
+        <a href="#marcas">Marcas</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="contenedor hero-interior">
+        <p class="etiqueta">PROYECTO ACADÉMICO · HTML Y CSS</p>
+        <h1>Tecnología para lo que viene.</h1>
+        <p class="hero-texto">Explora equipos y accesorios con una experiencia de compra clara, sencilla y adaptable a cualquier pantalla.</p>
+        <a href="#productos" class="boton">Explorar productos <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <section class="seccion contenedor" id="productos">
+      <div class="titulo-seccion"><div><p class="etiqueta">CATÁLOGO</p><h2>Productos destacados</h2></div><p>Selección de ejemplo para la práctica.</p></div>
+      <div class="tarjetas">
+        <article class="tarjeta"><div class="imagen-producto"><img src="img/laptop.svg" alt="Ilustración de una laptop"></div><div class="tarjeta-contenido"><span class="tipo">COMPUTACIÓN</span><h3>Laptop Pro 14</h3><p>16 GB RAM · 512 GB SSD</p><span class="precio">$899.00</span></div></article>
+        <article class="tarjeta"><div class="imagen-producto"><img src="img/celular.svg" alt="Ilustración de un celular"></div><div class="tarjeta-contenido"><span class="tipo">MÓVILES</span><h3>Celular X10</h3><p>128 GB · Cámara 50 MP</p><span class="precio">$349.00</span></div></article>
+        <article class="tarjeta"><div class="imagen-producto"><img src="img/audio.svg" alt="Ilustración de unos audífonos"></div><div class="tarjeta-contenido"><span class="tipo">AUDIO</span><h3>Audífonos Bluetooth</h3><p>30 horas de batería</p><span class="precio">$59.90</span></div></article>
+        <article class="tarjeta"><div class="imagen-producto"><img src="img/control.svg" alt="Ilustración de un control de videojuegos"></div><div class="tarjeta-contenido"><span class="tipo">GAMING</span><h3>Control inalámbrico</h3><p>Bluetooth · Compatible con PC</p><span class="precio">$49.90</span></div></article>
+      </div>
+    </section>
+    <section class="seccion marcas-fondo" id="marcas">
+      <div class="contenedor"><p class="etiqueta">NUESTRAS MARCAS</p><h2>Referencias del mercado</h2><div class="fila-marcas" aria-label="Marcas de ejemplo"><span>Samsung</span><span>Apple</span><span>ASUS</span><span>Sony</span></div></div>
+    </section>
+    <section class="seccion contenedor nosotros" id="nosotros">
+      <div><p class="etiqueta">SOBRE NOSOTROS</p><h2>Una experiencia sencilla, desde el primer clic.</h2><p>Esta es la landing page estática de la Unidad 1. El proyecto Django se encuentra en la carpeta principal y contiene el CRUD real de la tarea.</p></div>
+      <ul class="beneficios"><li><strong>Diseño adaptable</strong><span>Menú y tarjetas que se ajustan al teléfono.</span></li><li><strong>HTML semántico</strong><span>Estructura clara con secciones y formularios.</span></li><li><strong>CSS separado</strong><span>Flexbox, tarjetas, colores y transiciones.</span></li></ul>
+    </section>
+    <section class="seccion contacto-fondo" id="contacto">
+      <div class="contenedor contacto-interior"><div><p class="etiqueta">CONTACTO</p><h2>¿Tienes una consulta?</h2><p>Formulario visual para practicar HTML; no envía información a un servidor.</p></div>
+      <form class="formulario" onsubmit="return false" aria-label="Formulario de demostración">
+        <label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <label for="correo">Correo</label><input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
+        <label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu consulta"></textarea>
+        <button type="submit" class="boton">Formulario de demostración</button>
+      </form></div>
+    </section>
+  </main>
+  <footer class="pie"><div class="contenedor">© 2026 TecnoShop · Práctica HTML/CSS · Guayaquil, Ecuador</div></footer>
+</body>
+</html>

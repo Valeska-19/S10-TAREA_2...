@@ -1,0 +1,31 @@
+/* Unidad 1: selectores, modelo de caja, Flexbox, pseudoclases y responsive. */
+:root{--fondo:#f3f6f2;--verde:#0c4b33;--verde-claro:#2f9e6e;--amarillo:#f2c230;--texto:#15241b;--apagado:#66736c;--borde:#dee7de}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--texto);background:var(--fondo)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px}
+.contenedor{width:min(1150px,calc(100% - 40px));margin-inline:auto}
+.cabecera{background:#102a1d;color:white;position:sticky;top:0;z-index:10}
+.cabecera-interior{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:78px}
+.logo{font-size:1.55rem;font-weight:900;letter-spacing:-.04em}.logo span{color:var(--amarillo)}
+.menu{display:flex;flex-wrap:wrap;gap:clamp(12px,2vw,30px)}.menu a{font-weight:650;color:#e2efe7}.menu a:hover{color:var(--amarillo)}
+.hero{background:radial-gradient(circle at 85% 20%,#227650 0,transparent 37%),linear-gradient(118deg,#0b291b,#174e36);color:#fff}
+.hero-interior{padding-block:110px 105px;max-width:1150px}.hero h1{font-size:clamp(2.4rem,6vw,5.2rem);line-height:1.04;max-width:700px;letter-spacing:-.055em;margin:0 0 18px}.hero-texto{font-size:1.17rem;color:#cce3d6;max-width:520px;margin:0 0 32px}
+.etiqueta{font-size:.74rem;font-weight:850;letter-spacing:.14em;color:var(--verde-claro);margin:0 0 9px}.hero .etiqueta{color:var(--amarillo)}
+.boton{border:0;display:inline-flex;align-items:center;justify-content:center;gap:18px;background:var(--amarillo);color:#14251a;padding:13px 23px;font-weight:800;border-radius:9px;cursor:pointer;transition:transform .16s,box-shadow .16s}
+.boton:hover{transform:scale(1.045);box-shadow:0 8px 25px #0002}
+.seccion{padding-block:75px}.seccion h2{font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.17;letter-spacing:-.035em;margin:0 0 16px}.titulo-seccion{display:flex;align-items:flex-end;justify-content:space-between;gap:25px;margin-bottom:22px}.titulo-seccion>p{color:var(--apagado)}
+.tarjetas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.tarjeta{border:1px solid var(--borde);border-radius:15px;overflow:hidden;background:white;transition:transform .18s,box-shadow .18s}.tarjeta:hover{transform:translateY(-4px);box-shadow:0 14px 26px #162c1c1c}
+.imagen-producto{height:195px;display:grid;place-items:center;background:linear-gradient(135deg,#e2efe5,#f4f7e7)}.imagen-producto img{width:145px;height:130px;object-fit:contain}
+.tarjeta-contenido{padding:20px}.tipo{font-size:.67rem;color:var(--verde);font-weight:900;letter-spacing:.1em}.tarjeta h3{font-size:1.1rem;margin:7px 0}.tarjeta p{margin:0 0 18px;color:var(--apagado);font-size:.92rem}.precio{font-size:1.35rem;font-weight:850;color:var(--verde)}
+.marcas-fondo{background:white}.fila-marcas{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:25px}.fila-marcas span{border:1px solid var(--borde);border-radius:12px;padding:20px 10px;text-align:center;font-size:1.25rem;letter-spacing:-.025em;font-weight:850}
+.nosotros{display:grid;grid-template-columns:1fr 1fr;gap:70px}.nosotros p{color:var(--apagado)}.nosotros .etiqueta{color:var(--verde-claro)}
+.beneficios{list-style:none;padding:0;margin:0}.beneficios li{border-bottom:1px solid var(--borde);padding:15px 0;display:flex;flex-direction:column;gap:3px}.beneficios strong{color:var(--verde)}.beneficios span{color:var(--apagado)}
+.contacto-fondo{background:#e5efe7}.contacto-interior{display:grid;grid-template-columns:1fr 1fr;gap:70px}.contacto-interior>div>p:last-child{color:var(--apagado)}
+.formulario{display:flex;flex-direction:column;gap:7px}.formulario label{font-weight:750;margin-top:6px}.formulario input,.formulario textarea{font:inherit;background:white;border:1px solid #bfcec3;border-radius:8px;padding:11px 13px;max-width:100%}.formulario button{margin-top:14px;align-self:flex-start}
+.pie{background:#11271b;color:#d6e3d7;text-align:center;padding:27px 0;font-size:.85rem}
+@media(max-width:900px){.tarjetas{grid-template-columns:repeat(2,minmax(0,1fr))}.nosotros,.contacto-interior{grid-template-columns:1fr;gap:25px}}
+@media(max-width:540px){.cabecera-interior{flex-direction:column;padding:16px 0;gap:10px}.menu{justify-content:center;font-size:.88rem}.hero-interior{padding-block:80px}.tarjetas{grid-template-columns:1fr}.fila-marcas{grid-template-columns:repeat(2,1fr)}.seccion{padding-block:52px}.titulo-seccion{display:block}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tarjeta,.boton{transition:none}}

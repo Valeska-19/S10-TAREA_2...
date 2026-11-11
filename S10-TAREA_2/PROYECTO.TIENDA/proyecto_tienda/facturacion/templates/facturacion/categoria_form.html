@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block titulo %}{{ titulo }}{% endblock %}
+{% block contenido %}
+<div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+        <div class="tarjeta">
+            <h1 class="h4 titulo-pagina mb-4">{{ titulo }}</h1>
+            {# method="post" y sin action: se envía a la MISMA dirección (crear o editar). Un solo template sirve para los dos #}
+            <form method="post" novalidate>
+                {% csrf_token %}                       {# Obligatorio en todo formulario POST #}
+                {% for campo in form %}                {# Recorre nombre, descripcion y activo #}
+                    {% if campo.field.widget.input_type == "checkbox" %}
+                        {# La casilla "activo" va con su etiqueta al lado #}
+                        <div class="form-check mb-4">{{ campo }} <label class="form-check-label" for="{{ campo.id_for_label }}">{{ campo.label }}</label></div>
+                    {% else %}
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="{{ campo.id_for_label }}">{{ campo.label }}</label>
+                            {{ campo }}
+                            {% for error in campo.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}   {# Errores en rojo #}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <button type="submit" class="btn btn-verde">{{ boton }}</button>      {# "Guardar" o "Actualizar" #}
+                <a href="{% url 'facturacion:categoria_lista' %}" class="btn btn-outline-secondary">Cancelar</a>   {# GET: vuelve sin guardar #}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+    <div class="tarjeta p-5 mb-4 text-center">
+        <h1 class="display-6 fw-bold">Bienvenido a {{ titulo }}</h1>
+        {% if user.is_authenticated %}
+            <p class="lead text-muted mb-0">Hola, {{ user.username }}. Sistema de facturación hecho con Django.</p>
+        {% else %}
+            <p class="lead text-muted">Sistema de facturación hecho con Django.</p>
+            <a href="{% url 'registro' %}" class="btn btn-verde">Crear cuenta</a>
+        {% endif %}
+    </div>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="tarjeta h-100">
+                
+<h2 class="h5 titulo-pagina">Prueba GET y POST</h2>
+
+{% if error_nombre %}
+    <div class="alert alert-danger" role="alert">
+        {{ error_nombre }}
+    </div>
+{% elif nombre %}
+    <p>
+        Hola, <strong>{{ nombre }}</strong>.
+        Llegó por
+        <span class="badge bg-warning text-dark">POST</span>
+    </p>
+{% else %}
+    <p>
+        La página llegó por
+        <span class="badge bg-success">GET</span>.
+        Envía tu nombre.
+    </p>
+{% endif %}
+
+<form method="post" class="d-flex gap-2">
+    {% csrf_token %}
+
+    <input
+        type="text"
+        name="nombre"
+        class="form-control"
+        placeholder="Tu nombre"
+        value="{{ valor_nombre }}"
+        required
+        minlength="2"
+        maxlength="60"
+        pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ '\-]{2,60}"
+        title="Ingresa un nombre válido, sin números ni símbolos especiales."
+    >
+
+    <button type="submit" class="btn btn-verde">
+        Enviar
+    </button>
+</form>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="tarjeta h-100">
+                <h2 class="h5 titulo-pagina">Lista recorrida con un for</h2>
+                <ul class="list-group">
+                    {% for producto in productos %}
+                        <li class="list-group-item">{{ forloop.counter }}. {{ producto|upper }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
